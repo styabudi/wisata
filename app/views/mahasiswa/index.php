@@ -1,6 +1,11 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-6">
+            <?php Flasher::flash(); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
             <h3>Daftar Mahasiswa</h3>
 
             <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#forModal">
