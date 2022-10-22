@@ -23,12 +23,23 @@ class Mahasiswa_model
     {
         $query = "INSERT INTO mahasiswa VALUES (null,:nama,:nim,:email,:jurusan)";
         $this->db->query($query);
-        $this->db->bind('nama',$data['nama']);
-        $this->db->bind('nim',$data['nim']);
-        $this->db->bind('email',$data['email']);
-        $this->db->bind('jurusan',$data['jurusan']);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('nim', $data['nim']);
+        $this->db->bind('email', $data['email']);
+        $this->db->bind('jurusan', $data['jurusan']);
 
         $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function hapusDataMahasiswa($id)
+    {
+        $query = "DELETE FROM mahasiswa where id =:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
         return $this->db->rowCount();
     }
 }
