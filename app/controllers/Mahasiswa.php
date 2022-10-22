@@ -24,12 +24,12 @@ class Mahasiswa extends Controller
     {
         // var_dump($_POST);
         if ($this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST) > 0) {
-            Flasher::setFlash('Data Berhasil ditambahkan','','success');
-            header('Location: '.BASEURL.'/mahasiswa');
+            Flasher::setFlash('Data Berhasil ditambahkan', '', 'success');
+            header('Location: ' . BASEURL . '/mahasiswa');
             exit;
-        }else{
-            Flasher::setFlash('Data Gagal ditambahkan','','danger');
-            header('Location: '.BASEURL.'/mahasiswa');
+        } else {
+            Flasher::setFlash('Data Gagal ditambahkan', '', 'danger');
+            header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         }
     }
@@ -37,12 +37,30 @@ class Mahasiswa extends Controller
     {
         // var_dump($_POST);
         if ($this->model('Mahasiswa_model')->hapusDataMahasiswa($id) > 0) {
-            Flasher::setFlash('Data Berhasil dihapus','','success');
-            header('Location: '.BASEURL.'/mahasiswa');
+            Flasher::setFlash('Data Berhasil dihapus', '', 'success');
+            header('Location: ' . BASEURL . '/mahasiswa');
             exit;
-        }else{
-            Flasher::setFlash('Data Gagal dihapus','','danger');
-            header('Location: '.BASEURL.'/mahasiswa');
+        } else {
+            Flasher::setFlash('Data Gagal dihapus', '', 'danger');
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        }
+    }
+
+    public function getubah()
+    {
+        echo json_encode($this->model('Mahasiswa_model')->getMahasiswaById($_POST['id']));
+    }
+
+    public function ubah()
+    {
+        if ($this->model('Mahasiswa_model')->ubahDataMahasiswa($_POST) > 0) {
+            Flasher::setFlash('Data Berhasil diubah', '', 'success');
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        } else {
+            Flasher::setFlash('Data Gagal diubah', '', 'danger');
+            header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         }
     }

@@ -8,7 +8,7 @@
         <div class="col-6">
             <h3>Daftar Mahasiswa</h3>
 
-            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#forModal">
+            <button type="button" class="btn btn-primary mb-3 tombolTambahData" data-bs-toggle="modal" data-bs-target="#forModal">
                 Tambah Data
             </button>
 
@@ -18,6 +18,7 @@
                         <?= $mhs['nama'] ?>
                         <div>
                             <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge text-bg-primary float-right">Detail</a>
+                            <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="badge text-bg-success float-right tampilModalUbah" data-bs-toggle="modal" data-bs-target="#forModal" data-id="<?= $mhs['id'] ?>">Ubah</a>
                             <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge text-bg-danger float-right" onclick="return confirm('Apakah anda yakin ingin menghapus data ?')">Hapus</a>
                         </div>
                     </li>
@@ -39,6 +40,7 @@
                 <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
                     <div class="mb-3">
                         <label for="formNama" class="form-label">Nama Mahasiswa</label>
+                        <input type="hidden" name="id" id="formId">
                         <input type="text" class="form-control" id="formNama" name="nama" placeholder="John Doe">
                     </div>
                     <div class="mb-3">
