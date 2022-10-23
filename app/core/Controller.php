@@ -11,4 +11,9 @@ class Controller
         require_once '../app/models/' . $model . '.php';
         return new $model;
     }
+    public function helper($helper)
+    {
+        require_once '../app/helpers/'.$helper.'.php';
+        return new $helper;
+    }
 }

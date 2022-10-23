@@ -1,18 +1,21 @@
 <?php
-class Mahasiswa extends Controller
+class MahasiswaController extends Controller
 {
 
     public function index()
     {
+        $data['title'] = 'Mahasiswa';
         $data['page_title'] = 'Daftar Mahasiswa';
         $data['mhs'] = $this->model('Mahasiswa_model')->getAllMahasiswa();
+        $data['scripts'] = $this->helper('MahasiswaHelper')->getScript();
         $this->view('template/header', $data);
         $this->view('mahasiswa/index', $data);
-        $this->view('template/footer');
+        $this->view('template/footer', $data);
     }
 
     public function detail($id)
     {
+        $data['title'] = 'Wisata';
         $data['page_title'] = 'Detail Mahasiswa';
         $data['mhs'] = $this->model('Mahasiswa_model')->getMahasiswaById($id);
         $this->view('template/header', $data);

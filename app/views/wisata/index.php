@@ -1,46 +1,44 @@
 <div class="row">
     <div class="col-6">
-        <?php Flasher::flash(); ?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-6">
         <button type="button" class="btn btn-primary mb-3 tombolTambahData" data-bs-toggle="modal" data-bs-target="#forModal">
             Tambah Data
         </button>
-        <ul class="list-group">
-            <?php foreach ($data['mhs'] as $key => $mhs) : ?>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <?= $mhs['nama'] ?>
-                    <div>
-                        <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge text-bg-primary float-right">Detail</a>
-                        <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="badge text-bg-success float-right tampilModalUbah" data-bs-toggle="modal" data-bs-target="#forModal" data-id="<?= $mhs['id'] ?>">Ubah</a>
-                        <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge text-bg-danger float-right" onclick="return confirm('Apakah anda yakin ingin menghapus data ?')">Hapus</a>
-                    </div>
-                </li>
-            <?php endforeach ?>
-        </ul>
     </div>
 </div>
+<div class="row">
 
-<!-- Modal -->
+    <?php foreach ($data['wisata'] as $key => $wisata) : ?>
+        <div class="col-sm-6 col-md-4 mb-3">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><?= $wisata['nama'] ?></h5>
+                    <p class="card-text"><?= $wisata['alamat'] ?></p>
+                    <p class="card-text"><?= $wisata['harga'] ?></p>
+                    <a href="#" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+    <?php endforeach ?>
+</div>
+
 <div class="modal fade" id="forModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="judulModal">Tambah Data Mahasiswa</h1>
+                <h1 class="modal-title fs-5" id="judulModal">Tambah Data Wisata</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
+                <form action="<?= BASEURL; ?>/wisata/add" method="post">
                     <div class="mb-3">
-                        <label for="formNama" class="form-label">Nama Mahasiswa</label>
+                        <label for="formNama" class="form-label">Nama Tempat Wisata</label>
                         <input type="hidden" name="id" id="formId">
-                        <input type="text" class="form-control" id="formNama" name="nama" placeholder="John Doe">
+                        <input type="text" class="form-control" id="formNama" name="nama" placeholder="Pantai Wisata">
                     </div>
                     <div class="mb-3">
-                        <label for="formNim" class="form-label">NIM</label>
-                        <input type="number" class="form-control" id="formNim" name="nim" placeholder="123456">
+                        <label for="formAlamat" class="form-label">Alamat</label>
+                        <input type="text" class="form-control" id="formAlamat" name="alamat" placeholder="Jl. ...">
                     </div>
                     <div class="mb-3">
                         <label for="formEmail" class="form-label">Email</label>
