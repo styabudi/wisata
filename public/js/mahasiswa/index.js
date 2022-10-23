@@ -6,11 +6,11 @@ $(function () {
     $('.tampilModalUbah').on('click', function () {
         $('#judulModal').html('Ubah Data Mahasiswa');
         $('.modal-footer button[type=submit]').html('Ubah Data');
-        $('.modal-body form').attr('action','http://localhost/phpmvc/public/mahasiswa/ubah')
+        $('.modal-body form').attr('action', baseUrl + '/mahasiswa/ubah')
         const id = $(this).data('id');
 
         $.ajax({
-            url: 'http://localhost/phpmvc/public/mahasiswa/getubah',
+            url: baseUrl + '/mahasiswa/getubah',
             data: { id: id },
             method: 'post',
             dataType: 'json',
