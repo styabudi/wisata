@@ -15,7 +15,7 @@
     <?php foreach ($data['wisata'] as $key => $wisata) : ?>
         <div class="col-sm-6 col-md-4 mb-3">
             <div class="card">
-                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <img src="<?= BASEURL . '/img/' . $wisata['gambar']; ?>" class="card-img-top img-fluid" alt="<?= $wisata['nama'] ?>" >
                 <div class="card-body">
                     <h5 class="card-title"><?= $wisata['nama'] ?></h5>
                     <p class="card-text"><?= $wisata['alamat'] ?></p>
@@ -91,14 +91,14 @@
                         <label for="formHargaTiket" class="col-sm-3 col-form-label">Harga Tiket</label>
                         <div class="col-sm-9">
                             <input type="text" readonly class="form-control-plaintext" id="formHargaTiket" value="Rp. 0">
-                            <input type="hidden"id="formHargaTiketInput" name="harga_tiket">
+                            <input type="hidden" id="formHargaTiketInput" name="harga_tiket">
                         </div>
                     </div>
                     <div class="mb-5 row">
                         <label for="formTotalBayar" class="col-sm-3 col-form-label">Total Bayar</label>
                         <div class="col-sm-9">
                             <input type="text" readonly class="form-control-plaintext" id="formTotalBayar" value="Rp. 0">
-                            <input type="hidden"id="formTotalBayarInput" name="total_harga">
+                            <input type="hidden" id="formTotalBayarInput" name="total_harga">
                         </div>
                     </div>
                     <div class="mb-3 row">
