@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?= BASEURL; ?>/wisata">Destinasi Wisata</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASEURL; ?>/booking">Booking Tiket</a>
+                    </li>
                 </ul>
                 
             </div>

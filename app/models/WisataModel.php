@@ -14,6 +14,11 @@ class WisataModel
         $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
     }
+    public function GetAllWisataForDropdown()
+    {
+        $this->db->query('SELECT id, nama FROM ' . $this->table);
+        return $this->db->resultSet();
+    }
 
     public function GetWisataById($id)
     {
@@ -46,7 +51,7 @@ class WisataModel
     }
     public function deleteWisata($id)
     {
-        $query = "DELETE FROM ". $this->table ." where id =:id";
+        $query = "DELETE FROM " . $this->table . " where id =:id";
         $this->db->query($query);
         $this->db->bind('id', $id);
 

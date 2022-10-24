@@ -4,7 +4,6 @@ class WisataController extends Controller
 {
     public function index()
     {
-        // var_dump($this->helper('WisataHelper')->getScript());
         $data['title'] = 'Wisata';
         $data['page_title'] = 'Daftar Destinasi Wisata';
         $data['wisata'] = $this->model('WisataModel')->GetAllWisata();
