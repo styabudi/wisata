@@ -23,7 +23,6 @@
                     <p class="card-text text-muted">Harga tiket : Rp. <?= $wisata['harga'] ?></p>
                     <div class="float-end">
                         <a href="<?= BASEURL; ?>/booking/detail/<?= $wisata['id'] ?>" class="btn btn-outline-primary">Details</a>
-                        <a href="<?= BASEURL; ?>/wisata/update" class="btn btn-outline-success tampilModalBooking" data-bs-toggle="modal" data-bs-target="#forModal" data-id="<?= $wisata['id'] ?>">Express Booking</a>
                     </div>
 
                 </div>
