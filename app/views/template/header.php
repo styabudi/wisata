@@ -20,13 +20,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="<?= BASEURL; ?>">Home</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="<?= BASEURL; ?>/mahasiswa">Mahasiswa</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= BASEURL; ?>/wisata">Destinasi Wisata</a>
-                    </li>
+                    </li>                   
                     <li class="nav-item">
                         <a class="nav-link" href="<?= BASEURL; ?>/booking">Booking Tiket</a>
                     </li>

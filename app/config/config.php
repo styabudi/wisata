@@ -1,5 +1,5 @@
 <?php
-define('BASEURL','http://localhost/wisataku/public');
+define('BASEURL','http://localhost/wisata/public');
 
 // DB
 define('DB_HOST', 'localhost');
