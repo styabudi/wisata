@@ -23,6 +23,11 @@ class BookingController extends Controller
         $this->view('template/footer', $data);
     }
 
+    public function getWisataDetail()
+    {
+        echo json_encode($this->model('WisataModel')->GetWisataById($_POST['id']));
+    }
+
     public function bookTicket()
     {
         if (trim($_POST['nik']) == '' || is_null(trim($_POST['nama']))) {

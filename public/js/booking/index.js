@@ -24,10 +24,11 @@ $(function () {
     });
 
     $('#formTempatWisata').on('change', function (e) {
+        console.log("ok");
         var valueSelected = this.value;
         if (valueSelected != 0) {
             $.ajax({
-                url: baseUrl + '/wisata/getUpdate',
+                url: baseUrl + '/booking/getWisataDetail',
                 data: { id: valueSelected },
                 method: 'post',
                 dataType: 'json',
