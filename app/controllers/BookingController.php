@@ -12,6 +12,17 @@ class BookingController extends Controller
         $this->view('booking/index', $data);
         $this->view('template/footer', $data);
     }
+    
+    public function detail($id)
+    {
+        $data['title'] = 'Booking Tiket';
+        $data['page_title'] = 'Detail Destinasi Wisata';
+        $data['wisata'] = $this->model('WisataModel')->GetWisataById($id);
+        $this->view('template/header', $data);
+        $this->view('booking/detail', $data);
+        $this->view('template/footer', $data);
+    }
+
     public function bookTicket()
     {
         if (trim($_POST['nik']) == '' || is_null(trim($_POST['nama']))) {

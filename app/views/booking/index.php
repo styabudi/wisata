@@ -15,13 +15,14 @@
     <?php foreach ($data['wisata'] as $key => $wisata) : ?>
         <div class="col-sm-6 col-md-4 mb-3">
             <div class="card">
-                <img src="<?= BASEURL . '/img/' . $wisata['gambar']; ?>" class="card-img-top img-fluid" alt="<?= $wisata['nama'] ?>" >
+                <img src="<?= BASEURL . '/img/' . $wisata['gambar']; ?>" class="card-img-top img-fluid" alt="<?= $wisata['nama'] ?>">
                 <div class="card-body">
                     <h5 class="card-title"><?= $wisata['nama'] ?></h5>
-                    <p class="card-text"><?= $wisata['alamat'] ?></p>
-                    <p class="card-text"><?= $wisata['harga'] ?></p>
+                    <p class="card-text text-muted"><?= $wisata['alamat'] ?></p>
+                    <p class="card-text"><?= $wisata['catatan'] ?></p>
+                    <p class="card-text text-muted">Harga tiket : Rp. <?= $wisata['harga'] ?></p>
                     <div class="float-end">
-                        <a href="<?= BASEURL; ?>/wisata/detail/<?= $wisata['id'] ?>" class="btn btn-outline-primary">Details</a>
+                        <a href="<?= BASEURL; ?>/booking/detail/<?= $wisata['id'] ?>" class="btn btn-outline-primary">Details</a>
                         <a href="<?= BASEURL; ?>/wisata/update" class="btn btn-outline-success tampilModalBooking" data-bs-toggle="modal" data-bs-target="#forModal" data-id="<?= $wisata['id'] ?>">Express Booking</a>
                     </div>
 
@@ -104,7 +105,7 @@
                     <div class="mb-3 row">
                         <div class="col-sm-12">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="formCheckAgreement" name="check_agreement">
+                                <input class="form-check-input" type="checkbox" id="formCheckAgreement" name="check_agreement">
                                 <label class="form-check-label" for="formCheckAgreement">
                                     Saya dan/atau rombongan telah membaca, memahami, dan setuju berdasarkan syarat dan ketentuan yang telah ditetapkan
                                 </label>
@@ -114,7 +115,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Tambah Data</button>
+                <button type="submit" class="btn btn-primary btnSubmitBooking" disabled>Booking</button>
                 </form>
             </div>
         </div>

@@ -55,6 +55,15 @@ $(function () {
         pengunjungAnak = this.value;
         hitungTotalBayar();
     });
+    
+
+    $('#formCheckAgreement').change(function () {
+        if(this.checked) {
+            $('.btnSubmitBooking').prop("disabled", false);
+        }else{
+            $('.btnSubmitBooking').prop("disabled", true);
+        }
+    });
 
     function hitunghargaTiketDewasa() {
         hargaTiketDewasa = hargaTiket * pengunjungDewasa;
