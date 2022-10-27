@@ -24,7 +24,6 @@ $(function () {
     });
 
     $('#formTempatWisata').on('change', function (e) {
-        console.log("ok");
         var valueSelected = this.value;
         if (valueSelected != 0) {
             $.ajax({

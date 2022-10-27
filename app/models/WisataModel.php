@@ -59,4 +59,47 @@ class WisataModel
 
         return $this->db->rowCount();
     }
+
+    public function getSummaryWisata()
+    {
+        $query = "select 
+        w.id,
+        w.nama tempat_wisata,
+        CASE 
+        WHEN t.total_pengunjung_dewasa IS NULL THEN
+            0
+        ELSE
+            t.total_pengunjung_dewasa
+        END total_dewasa,
+        CASE 
+        WHEN t.total_pengunjung_anak IS NULL THEN
+            0
+        ELSE
+            t.total_pengunjung_anak
+        END total_anak,
+        CASE 
+        WHEN t.total_pengunjung IS NULL THEN
+            0
+        ELSE
+            t.total_pengunjung
+        END total_pengunjung,
+        CASE 
+        WHEN t.total_pendapatan IS NULL THEN
+            0
+        ELSE
+            t.total_pendapatan
+        END total_pendapatan
+    from tempat_wisata w
+    left join (	select 
+                                tempat_wisata,
+                                sum(pengunjung_dewasa) total_pengunjung_dewasa,
+                                sum(pengunjung_anak) total_pengunjung_anak,
+                                (sum(pengunjung_dewasa) + sum(pengunjung_anak)) total_pengunjung,
+                                sum(total_harga) total_pendapatan  
+                            from pemesanan_tiket 
+                            GROUP BY tempat_wisata) t on w.id = t.tempat_wisata;";
+
+        $this->db->query($query);
+        return $this->db->resultSet();
+    }
 }

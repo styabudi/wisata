@@ -1,1 +1,1 @@
-var baseUrl = 'http://localhost/wisata/public';
+var baseUrl = 'http://localhost:81/wisata/public';
